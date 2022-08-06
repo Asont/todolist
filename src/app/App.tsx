@@ -23,14 +23,17 @@ type PropsType = {
 }
 
 function App({demo = false}: PropsType) {
+
+    useEffect(() => {
+        dispatch(initializeAppTC())
+    }, [])
+
     const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status)
     const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
     const isLogin = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(initializeAppTC())
-    }, [])
+
 
     const onClickLogoutHandler = () => {
         dispatch(logoutTC())
