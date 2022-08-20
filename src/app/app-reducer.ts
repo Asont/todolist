@@ -20,8 +20,8 @@ const slice = createSlice({
         setAppErrorAC(state, action:PayloadAction<{value: string | null}>){
             state.error = action.payload.value
         },
-        setAppStatusAC(state, action:PayloadAction<{value:RequestStatusType}>){
-            state.status = action.payload.value
+        setAppStatusAC(state, action:PayloadAction<{status:RequestStatusType}>){
+            state.status = action.payload.status
         }
     }
 })
